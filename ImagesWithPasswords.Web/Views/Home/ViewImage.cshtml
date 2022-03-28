@@ -1,0 +1,31 @@
+﻿@model ViewImageViewModel
+@if (Model.CheckForPassword)
+{
+
+
+<div class="row">
+        <div class="col-md-6 offset-md-3 jumbotron">
+            <h4>Please enter the password for this image:</h4>
+            <form method="post" action="/home/viewimage">
+                @if (!String.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <h3 class="alert-danger">@Model.ErrorMessage</h3>
+                }
+                <input type="hidden" name="id" value="@Model.ImageID" />
+                <input type="text" class="form-control" placeholder="Password" name="password" />
+                <br />
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <img src="/uploads/@Model.ImagePath" style="width: 800px;" />
+            <br />
+            <h3>Views: @Model.ImageViewCount</h3>
+        </div>
+    </div>
+}

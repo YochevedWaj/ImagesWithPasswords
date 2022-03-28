@@ -1,0 +1,15 @@
+﻿@model UploadViewModel
+<div class="row">
+    <div class="col-md-8 offset-md-2 jumbotron">
+        <h3>
+            Thank you for uploading your images,
+            here's the link to share with your friends:
+            <br /><br />
+            <a href="@Model.ImageLink">
+                @Model.ImageLink
+            </a>
+            <br /><br />
+            The password is "@Model.ImagePassword"
+        </h3>
+    </div>
+</div>
